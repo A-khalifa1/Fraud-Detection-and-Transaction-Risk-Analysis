@@ -6,12 +6,12 @@ It leverages a **Star Schema** to structure transaction data efficiently for ana
 
 The ETL pipeline extracts, transforms, and loads (ETL) transaction data while ensuring **high performance & integrity**.  
 
-(Fraud-Detection-and-Transaction-Risk-Analysis.jpg)
+![ELT Pipeline](Fraud-Detection-and-Transaction-Risk-Analysis.jpg)
 
 ## 📊 Data Model – Star Schema
 The project follows a **Star Schema** for optimized storage & analytics.
 
-(star_schema_pure.png)
+![Schema](star_schema_pure.png)
 
 ### 🏦 **Fact Table: `Fact_Transactions`**
 > Stores core transaction details & links to multiple dimensions.
