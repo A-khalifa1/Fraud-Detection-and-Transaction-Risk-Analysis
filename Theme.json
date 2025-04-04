@@ -1,0 +1,731 @@
+﻿{
+    "name": "Power BI Theme Generator - BIBB.PRO v1.2",
+    "$schema": "htps://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.121.json",
+    "dataColors": [
+        "#012a4a",
+        "#013a63",
+        "#01497c",
+        "#014f86",
+        "#2a6f97",
+        "#8AD4EB",
+        "#FE9666",
+        "#A66999",
+        "#3599B8",
+        "#DFBFBF",
+        "#4AC5BB",
+        "#5F6B6D",
+        "#FB8281",
+        "#F4D25A",
+        "#7F898A",
+        "#A4DDEE",
+        "#FDAB89",
+        "#B687AC",
+        "#28738A",
+        "#A78F8F",
+        "#168980",
+        "#293537",
+        "#BB4A4A",
+        "#B59525",
+        "#475052",
+        "#6A9FB0",
+        "#BD7150",
+        "#7B4F71",
+        "#1B4D5C",
+        "#706060",
+        "#0F5C55",
+        "#1C2325"
+    ],
+    "textClasses": {
+        "callout": {
+            "fontFace": "Arial",
+            "color": "#292E6B"
+        },
+        "header": {
+            "color": "#292E6B",
+            "fontFace": "Arial"
+        },
+        "label": {
+            "color": "#292E6B",
+            "fontFace": "Arial",
+            "fontSize": 9
+        },
+        "largeTitle": {
+            "color": "#292E6B",
+            "fontFace": "Georgia",
+            "fontSize": 12
+        },
+        "title": {
+            "color": "#292E6B",
+            "fontFace": "Arial",
+            "fontSize": 9
+        }
+    },
+    "bad": "#ee1c25",
+    "neutral": "#949599",
+    "good": "#38b64b",
+    "maximum": "#00243A",
+    "minimum": "#b2d7ed",
+    "center": "#007bc4",
+    "firstLevelElements": "#292E6B",
+    "secondLevelElements": "#292E6B",
+    "thirdLevelElements": "#292E6B",
+    "fourthLevelElements": "#292E6B",
+    "background": "#F6F8F9",
+    "secondaryBackground": "#F6F8F9",
+    "visualStyles": {
+        "*": {
+            "*": {
+                "background": [
+                    {
+                        "color": {
+                            "solid": {
+                                "color": "#F6F8F9"
+                            }
+                        },
+                        "transparency": 0
+                    }
+                ],
+                "border": [
+                    {
+                        "color": {
+                            "solid": {
+                                "color": "#F6F8F9"
+                            }
+                        },
+                        "radius": 5,
+                        "show": true,
+                        "transparency": 0
+                    }
+                ],
+                "categoryAxis": [
+                    {
+                        "showAxisTitle": false
+                    }
+                ],
+                "dropShadow": [
+                    {
+                        "show": true,
+                        "color": {
+                            "solid": {
+                                "color": "#001A29"
+                            }
+                        },
+                        "shadowSpread": 0,
+                        "shadowBlur": 10,
+                        "angle": 45,
+                        "shadowDistance": 10,
+                        "transparency": 75,
+                        "position": "Outer",
+                        "preset": "Custom"
+                    }
+                ],
+                "legend": [
+                    {
+                        "position": "TopCenter",
+                        "showTitle": false
+                    }
+                ],
+                "padding": [
+                    {
+                        "top": 10
+                    },
+                    {
+                        "bottom": 10
+                    },
+                    {
+                        "left": 10
+                    },
+                    {
+                        "right": 10
+                    }
+                ],
+                "subTitle": [
+                    {
+                        "show": true
+                    }
+                ],
+                "totals": [
+                    {
+                        "show": true,
+                        "bold": true
+                    }
+                ],
+                "valueAxis": [
+                    {
+                        "gridlineShow": true,
+                        "gridlineColor": {
+                            "solid": {
+                                "color": {
+                                    "expr": {
+                                        "ThemeDataColor": {
+                                            "ColorId": 2,
+                                            "Percent": -0.25
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "gridlineStyle": "dotted",
+                        "gridlineThickness": 2,
+                        "showAxisTitle": false
+                    }
+                ]
+            }
+        },
+        "actionButton": {
+            "*": {
+                "outline": [
+                    {
+                        "show": false
+                    }
+                ],
+                "padding": [
+                    {
+                        "bottom": 0,
+                        "left": 0,
+                        "right": 0,
+                        "top": 0
+                    }
+                ],
+                "border": [
+                    {
+                        "show": false
+                    }
+                ],
+                "dropShadow": [
+                    {
+                        "show": false
+                    }
+                ]
+            }
+        },
+        "barChart": {
+            "*": {
+                "legend": [
+                    {
+                        "show": false
+                    }
+                ]
+            }
+        },
+        "card": {
+            "*": {
+                "labels": [
+                    {
+                        "fontSize": 20
+                    }
+                ],
+                "padding": [
+                    {
+                        "bottom": 0
+                    },
+                    {
+                        "top": 0
+                    },
+                    {
+                        "left": 0
+                    },
+                    {
+                        "right": 0
+                    }
+                ]
+            }
+        },
+        "cardVisual": {
+            "*": {
+                "accentBar": [
+                    {
+                        "show": true
+                    }
+                ],
+                "image": [
+                    {
+                        "$id": "default",
+                        "show": true,
+                        "imageType": "imageUrl",
+                        "position": "Right",
+                        "padding": 10,
+                        "size": 40
+                    },
+                    {
+                        "show": true
+                    }
+                ],
+                "label": [
+                    {
+                        "$id": "default",
+                        "position": "belowValue"
+                    }
+                ],
+                "outline": [
+                    {
+                        "show": false
+                    }
+                ],
+                "padding": [
+                    {
+                        "$id": "default",
+                        "paddingSelection": "Custom",
+                        "topMargin": 0,
+                        "bottomMargin": 0,
+                        "rightMargin": 0,
+                        "leftMargin": 10
+                    },
+                    {
+                        "left": 4
+                    }
+                ],
+                "spacing": [
+                    {
+                        "$id": "default",
+                        "verticalSpacing": 0
+                    }
+                ],
+                "value": [
+                    {
+                        "$id": "default",
+                        "fontSize": 18,
+                        "horizontalAlignment": "left"
+                    }
+                ]
+            }
+        },
+        "clusteredColumnChart": {
+            "*": {
+                "labels": [
+                    {
+                        "show": true
+                    }
+                ]
+            }
+        },
+        "columnChart": {
+            "*": {
+                "legend": [
+                    {
+                        "show": false
+                    }
+                ]
+            }
+        },
+        "donutChart": {
+            "*": {
+                "legend": [
+                    {
+                        "show": false
+                    }
+                ],
+                "labels": [
+                    {
+                        "labelStyle": "Both"
+                    }
+                ]
+            }
+        },
+        "filledMap": {
+            "*": {
+                "mapStyles": [
+                    {
+                        "mapTheme": "grayscale"
+                    }
+                ]
+            }
+        },
+        "htmlContent443BE3AD55E043BF878BED274D3A6855": {
+            "*": {
+                "padding": [
+                    {
+                        "bottom": 0
+                    },
+                    {
+                        "top": 0
+                    },
+                    {
+                        "left": 0
+                    },
+                    {
+                        "right": 0
+                    }
+                ]
+            }
+        },
+        "htmlContent443BE3AD55E043BF878BED274D3A6865": {
+            "*": {
+                "padding": [
+                    {
+                        "bottom": 0
+                    },
+                    {
+                        "top": 0
+                    },
+                    {
+                        "left": 0
+                    },
+                    {
+                        "right": 0
+                    }
+                ]
+            }
+        },
+        "image": {
+            "*": {
+                "background": [
+                    {
+                        "show": false
+                    }
+                ],
+                "border": [
+                    {
+                        "show": false
+                    }
+                ],
+                "dropShadow": [
+                    {
+                        "show": false
+                    }
+                ]
+            }
+        },
+        "lineChart": {
+            "*": {
+                "valueAxis": [
+                    {
+                        "gridlineShow": true,
+                        "gridlineColor": {
+                            "solid": {
+                                "color": {
+                                    "expr": {
+                                        "ThemeDataColor": {
+                                            "ColorId": 2,
+                                            "Percent": -0.25
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "gridlineStyle": "dotted",
+                        "gridlineThickness": 2
+                    }
+                ]
+            }
+        },
+        "page": {
+            "*": {
+                "background": [
+                    {
+                        "color": {
+                            "solid": {
+                                "color": "#E6ECF0"
+                            }
+                        },
+                        "transparency": 0
+                    }
+                ],
+                "outspacePane": [
+                    {
+                        "backgroundColor": {
+                            "solid": {
+                                "color": "#E6ECF0"
+                            }
+                        }
+                    }
+                ],
+                "filterCard": [
+                    {
+                        "$id": "Available",
+                        "backgroundColor": {
+                            "solid": {
+                                "color": "#E6ECF0"
+                            }
+                        },
+                        "foregroundColor": {
+                            "solid": {
+                                "color": "#292E6B"
+                            }
+                        },
+                        "inputBoxColor": {
+                            "solid": {
+                                "color": "#F6F8F9"
+                            }
+                        },
+                        "transparency": 0
+                    },
+                    {
+                        "$id": "Applied",
+                        "backgroundColor": {
+                            "solid": {
+                                "color": "#F6F8F9"
+                            }
+                        },
+                        "foregroundColor": {
+                            "solid": {
+                                "color": "#292E6B"
+                            }
+                        },
+                        "inputBoxColor": {
+                            "solid": {
+                                "color": "#F6F8F9"
+                            }
+                        },
+                        "transparency": 0
+                    }
+                ]
+            }
+        },
+        "pieChart": {
+            "*": {
+                "legend": [
+                    {
+                        "show": false
+                    }
+                ],
+                "labels": [
+                    {
+                        "labelStyle": "Both"
+                    }
+                ]
+            }
+        },
+        "pivotTable": {
+            "*": {
+                "border": [
+                    {
+                        "show": true
+                    }
+                ],
+                "grid": [
+                    {
+                        "outlineColor": {
+                            "solid": {
+                                "color": {
+                                    "expr": {
+                                        "ThemeDataColor": {
+                                            "ColorId": 0,
+                                            "Percent": -0.2
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "outlineWeight": 2,
+                        "rowPadding": 5
+                    }
+                ],
+                "rowHeaders": [
+                    {
+                        "wordWrap": false
+                    }
+                ],
+                "stylePreset": [
+                    {
+                        "name": "Minimal"
+                    }
+                ]
+            }
+        },
+        "scatterChart": {
+            "*": {
+                "legend": [
+                    {
+                        "show": true,
+                        "position": "Left",
+                        "fontFamily": "Arial",
+                        "fontSize": 8
+                    }
+                ],
+                "categoryAxis": [
+                    {
+                        "show": true,
+                        "fontSize": 8
+                    }
+                ],
+                "valueAxis": [
+                    {
+                        "show": true,
+                        "position": "Left",
+                        "fontSize": 8
+                    }
+                ]
+            }
+        },
+        "shape": {
+            "*": {
+                "background": [
+                    {
+                        "color": {
+                            "solid": {
+                                "color": "#F6F8F9"
+                            }
+                        },
+                        "show": true,
+                        "transparency": 0
+                    }
+                ],
+                "fill": [
+                    {
+                        "show": false
+                    }
+                ],
+                "outline": [
+                    {
+                        "show": false
+                    }
+                ],
+                "_comments": ""
+            }
+        },
+        "slicer": {
+            "*": {
+                "background": [
+                    {
+                        "show": false
+                    }
+                ],
+                "dropShadow": [
+                    {
+                        "show": false
+                    }
+                ],
+                "header": [
+                    {
+                        "show": true
+                    }
+                ],
+                "items": [
+                    {
+                        "background": {
+                            "solid": {
+                                "color": "#E6ECF0"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "stackedAreaChart": {
+            "*": {
+                "legend": [
+                    {
+                        "show": true,
+                        "position": "Left",
+                        "fontSize": 8
+                    }
+                ],
+                "categoryAxis": [
+                    {
+                        "show": true,
+                        "fontSize": 8
+                    }
+                ],
+                "valueAxis": [
+                    {
+                        "show": true,
+                        "position": "Left",
+                        "fontSize": 8
+                    }
+                ]
+            }
+        },
+        "tableEx": {
+            "*": {
+                "columnHeaders": [
+                    {
+                        "backColor": {
+                            "solid": {
+                                "color": {
+                                    "expr": {
+                                        "ThemeDataColor": {
+                                            "ColorId": 2,
+                                            "Percent": 0.9
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "grid": [
+                    {
+                        "gridHorizontal": true,
+                        "rowPadding": 3.5,
+                        "outlineColor": {
+                            "solid": {
+                                "color": {
+                                    "expr": {
+                                        "ThemeDataColor": {
+                                            "ColorId": 2
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "outlineStyle": 1,
+                        "outlineWeight": 0.5
+                    }
+                ],
+                "padding": [],
+                "title": [
+                    {
+                        "show": true
+                    }
+                ],
+                "values": [
+                    {
+                        "backColorPrimary": {
+                            "solid": {
+                                "color": "#F6F8F9"
+                            }
+                        },
+                        "backColorSecondary": {
+                            "solid": {
+                                "color": "#F6F8F9"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "textbox": {
+            "*": {
+                "background": [
+                    {
+                        "show": false
+                    }
+                ],
+                "border": [
+                    {
+                        "show": false
+                    }
+                ],
+                "dropShadow": [
+                    {
+                        "show": false
+                    }
+                ],
+                "padding": [
+                    {
+                        "bottom": 0
+                    },
+                    {
+                        "left": 0
+                    },
+                    {
+                        "right": 0
+                    },
+                    {
+                        "top": 0
+                    }
+                ]
+            }
+        },
+        "waterfallChart": {
+            "*": {
+                "legend": [
+                    {
+                        "show": false
+                    }
+                ]
+            }
+        }
+    }
+}
