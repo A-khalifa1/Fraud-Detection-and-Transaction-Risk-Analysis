@@ -1,78 +1,116 @@
-# Fraud Detection and Transaction Risk Analysis
+# 🚀 Fraud Detection & Transaction Risk Analysis
 
-## Overview
-This project implements a **fraud detection and transaction risk analysis pipeline** for a digital wallet system. The pipeline extracts data from CSV, loads it into MongoDB, transfers it to PostgreSQL using Airbyte, transforms it with dbt, and orchestrates the workflow with Kestra.
+## 🔍 Overview
+This project builds a **fraud detection & transaction risk analysis pipeline** for a **digital wallet system**.  
+It leverages a **Star Schema** to structure transaction data efficiently for analytical processing.  
+Fraud-Detection-and-Transaction-Risk-Analysis.jpg
+The ETL pipeline extracts, transforms, and loads (ETL) transaction data while ensuring **high performance & integrity**.  
 
-## Data Pipeline Architecture
-Below is the architecture of the ELT pipeline:
+## 📊 Data Model – Star Schema
+The project follows a **Star Schema** for optimized storage & analytics.
+star_schema_pure.png
 
-![ELT Pipeline](Fraud-Detection-and-Transaction-Risk-Analysis.jpg)
+### 🏦 **Fact Table: `Fact_Transactions`**
+> Stores core transaction details & links to multiple dimensions.
 
-## Technologies Used
-- **Python & Pandas**: Data processing and transformation.
-- **MongoDB**: NoSQL database for storing raw transactions.
-- **Airbyte**: Extract and load data from MongoDB to PostgreSQL.
-- **PostgreSQL**: Staging area and Data Warehouse.
-- **dbt**: Data modeling and transformation.
-- **Kestra**: Orchestration of ELT workflows.
+| Column | Type | Description |
+|---------|------|-------------|
+| `transaction_sk` | PK | Unique transaction key |
+| `customer_sk` | FK | Links to customers |
+| `merchant_sk` | FK | Links to merchants |
+| `time_sk` | FK | Links to time table |
+| `device_sk` | FK | Links to device info |
+| `location_sk` | FK | Geographical location |
+| `transaction_amount` | NUMERIC | Amount transacted |
+| `isfraud` | BOOLEAN | Fraud flag |
+| `isflaggedfraud` | BOOLEAN | Flagged fraud status |
 
-## Data Flow
-1. **CSV to JSON & MongoDB**
-   - Read transaction data from CSV.
-   - Convert it to JSON format.
-   - Insert it into MongoDB.
-2. **MongoDB to PostgreSQL Staging**
-   - Airbyte extracts data from MongoDB.
-   - Loads it into a staging table in PostgreSQL.
-3. **PostgreSQL to Data Warehouse**
-   - dbt transforms raw data into analytical models.
-   - Stores the transformed data in PostgreSQL DWH.
-4. **Orchestration with Kestra**
-   - Automates and schedules the entire workflow.
+### 🏷️ **Dimension Tables**
+#### 📆 `Dim_Time` – Stores transaction timestamps  
+- `time_sk` (PK) 🗝️  
+- `date_bk`, `hour_bk`, `month`, `dayofweek`, `is_holiday`  
 
-## Data Model
-The project follows a **Star Schema** with the following tables:
+#### 👤 `Dim_Customer` – Customer details  
+- `customer_sk` (PK) 🗝️  
+- `full_name`, `contact_number`, `age`, `city`, `country`  
 
-### Dimension Tables
-- **Dim_Time**: Contains date and time-related attributes.
-- **Dim_Transaction_Type**: Stores transaction categories.
-- **Dim_Customer**: Information about wallet users.
-- **Dim_Merchant**: Details of merchants receiving payments.
-- **Dim_Device (optional)**: Device details for mobile/web transactions.
-- **Dim_Location (optional)**: Geographic location data.
-- **Dim_Payment_Channel**: Specifies transaction channels.
-- **Dim_Fraud_Status**: Fraud classification.
+#### 🏬 `Dim_Merchant` – Merchant information  
+- `merchant_sk` (PK) 🗝️  
+- `merchant_name`, `category`, `rating`, `location`  
 
-### Fact Table
-- **Fact_Transactions**: Stores transaction details, linking to all dimensions.
+#### 📱 `Dim_Device` – Device & OS details  
+- `device_sk` (PK) 🗝️  
+- `device_type`, `operating_system`, `app_version`  
 
-## Running the Pipeline
-### Prerequisites
-Ensure you have the following installed:
-- Python (with Pandas, PyMongo, etc.)
-- MongoDB
-- PostgreSQL
-- Airbyte
-- dbt
-- Kestra
+#### 📍 `Dim_Location` – Geographical data  
+- `location_sk` (PK) 🗝️  
+- `city`, `region`, `latitude`, `longitude`  
 
-### Steps
-1. **Run the Python script to insert data into MongoDB:**
-   ```bash
-   python convert_to_json_connect_mongo.ipynb
-   ```
-2. **Configure and run Airbyte to move data to PostgreSQL.**
-3. **Execute dbt transformations:**
-   ```bash
-   dbt run
-   ```
-4. **Use Kestra to orchestrate and automate tasks.**
-
-## Future Enhancements
-- Implement **incremental loading** in Airbyte for better performance.
-- Enhance **data quality checks** before inserting into MongoDB.
-- Add **real-time fraud detection** with stream processing tools.
+#### 💳 `Dim_Transaction_Type` – Payment type details  
+- `transaction_type_sk` (PK) 🗝️  
+- `payment_channel_bk`, `type_bk`  
 
 ---
-For any issues or improvements, feel free to contribute! 🚀
 
+## ⚙️ **Data Pipeline Architecture**  
+Follows a structured **ELT (Extract, Load, Transform) pipeline**.  
+
+### 🛠️ **Tech Stack**  
+✅ **Python & Pandas** – Data processing & transformation  
+✅ **MongoDB** – NoSQL database for raw storage  
+✅ **Airbyte** – Extracts & loads data into PostgreSQL  
+✅ **PostgreSQL** – Data warehouse for analytics  
+✅ **dbt** – Data modeling & transformations  
+✅ **Kestra** – Workflow orchestration  
+
+### 🔄 **Data Flow**  
+1️⃣ **CSV → JSON & MongoDB** 📥  
+   - Convert raw transactions into JSON  
+   - Insert into **MongoDB**  
+
+2️⃣ **MongoDB → PostgreSQL (Staging)** 🛢️  
+   - **Airbyte** extracts & loads raw data  
+
+3️⃣ **PostgreSQL → Data Warehouse** 🎯  
+   - **dbt** transforms data into a **star schema**  
+
+4️⃣ **Orchestration with Kestra** 🤖  
+   - Automates the full pipeline  
+
+---
+
+## 🚀 **Running the Pipeline**  
+### ✅ **Prerequisites**  
+Install the required tools:  
+```bash
+pip install pandas pymongo
+# Install MongoDB, PostgreSQL, Airbyte, dbt, and Kestra
+```  
+
+### 🔧 **Execution Steps**  
+1️⃣ **Load Data into MongoDB**  
+```bash
+python convert_to_json_connect_mongo.ipynb
+```  
+2️⃣ **Run Airbyte to transfer data from MongoDB to PostgreSQL**  
+3️⃣ **Execute dbt transformations**  
+```bash
+dbt run
+```  
+4️⃣ **Use Kestra for orchestration**  
+
+---  
+
+## 🚀 **Future Enhancements**  
+✅ Implement **incremental loading** for optimized performance  
+✅ Enhance **data validation & cleansing** before insertion  
+✅ Integrate **real-time fraud detection** with streaming tech  
+
+---  
+**📌 Author:** Abdulrhman Khalifa  
+📧 Contact: abdulrahman.m.khalifa@gmail.com  
+🔗 LinkedIn: [Your LinkedIn Profile](#)  
+
+---  
+
+🎯 **Built for fraud prevention. Powered by data.** 💡  
