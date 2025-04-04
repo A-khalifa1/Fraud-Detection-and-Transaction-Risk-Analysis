@@ -112,7 +112,7 @@ dbt run
 ---  
 **📌 Author:** Abdulrhman Khalifa  
 
-🔗 LinkedIn: (https://www.linkedin.com/in/abdulrahman-m-khalifa/) 
+🔗 LinkedIn: [https://www.linkedin.com/in/abdulrahman-m-khalifa/](#)  
 
 ---  
 
