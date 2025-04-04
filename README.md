@@ -111,8 +111,8 @@ dbt run
 
 ---  
 **📌 Author:** Abdulrhman Khalifa  
-📧 Contact: abdulrahman.m.khalifa@gmail.com  
-🔗 LinkedIn: [Your LinkedIn Profile](#)  
+
+🔗 LinkedIn: [[LinkedIn Profile](#) ](https://www.linkedin.com/in/abdulrahman-m-khalifa/) 
 
 ---  
 
